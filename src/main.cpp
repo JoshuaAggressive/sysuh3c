@@ -203,10 +203,12 @@ int main(int argc, char *const argv[]) {
     while (autoretry_count --) {
         try {
             authservice.auth();
+            autoretry_count = 5; 
         }
         catch (const EAPAuthFailed &expt) {
-            if (!haslogin)
-                return EXIT_FAILURE;
+            if (!haslogin) {
+                if (autoretry_count < 0) return EXIT_FAILURE;
+            }
         }
         catch (const EAPAuthException &expt) {
             cerr << expt.what() << endl;
