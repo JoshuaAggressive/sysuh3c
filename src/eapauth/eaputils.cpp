@@ -155,7 +155,7 @@ EAPClient::EAPClient(const std::string &iface) {
     memcpy(this->mac_addr, mac_addr, 6);
 
 #else
-#error SYSUH3C doesn't support your platform.
+#error SYSUH3C does not support your platform.
 #endif
 
     // Generate ethernet header
