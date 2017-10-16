@@ -161,7 +161,7 @@ int main(int argc, char *const argv[]) {
     });
 
     bool haslogin = false;
-    int autoretry_count = 5;
+    int autoretry_count = 0;
 
     authservice.set_status_listener([&] (int8_t statno) {
         if (!is_daemon) {
